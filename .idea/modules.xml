@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/POE_PART_TWO.iml" filepath="$PROJECT_DIR$/POE_PART_TWO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Test/Test.iml" filepath="$PROJECT_DIR$/Test/Test.iml" />
     </modules>
   </component>
 </project>

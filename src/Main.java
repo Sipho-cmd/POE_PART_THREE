@@ -2,47 +2,57 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class Main {
+
     public static void main(String[] args) {
 
-        //Registration
+        // Registration
         Registration registration = new Registration();
         registration.Register();
 
-        //login attempt
+        // Login attempt
         Scanner s = new Scanner(System.in);
 
-        System.out.println("Please login in: ");
-        System.out.println("Enter Username: ");
+        System.out.println("\n=====================================");
+        System.out.println("Please login in:");
+        System.out.println("=====================================");
+
+        System.out.print("Enter Username: ");
         String loginUser = s.nextLine();
 
-        System.out.println("Enter Password: ");
+        System.out.print("Enter Password: ");
         String loginPass = s.nextLine();
 
-        //Creates a login object
+        // Create login object
         Login login = new Login(
                 registration.userName,
                 registration.passWord,
                 registration.firstName,
-                registration.lastName);
+                registration.lastName
+        );
 
-        //Login result
+        // Login result
         String loginResult = login.loginUser(loginUser, loginPass);
         System.out.println(loginResult);
 
-        //check login success
-        if (loginResult.toLowerCase().contains("Welcome")) {
+        // Check login success (improved)
+        if (loginResult.toLowerCase().contains("welcome")) {
 
-            //Hello popup
-            JOptionPane.showMessageDialog(null, "Hello" + registration.firstName + "" +
-                    registration.lastName + "\nWelcome to Quickchat!", "Welcome", JOptionPane.INFORMATION_MESSAGE);
+            // Welcome popup
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Hello " + registration.firstName + " " + registration.lastName + "\nWelcome to QuickChat!",
+                    "Welcome",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
 
-            //Quickchat Menu
+            // QuickChat Menu
             while (true) {
+
                 String[] options = {"Select Quickchat", "Send Quickchat", "Quit"};
 
                 int choice = JOptionPane.showOptionDialog(
                         null,
-                        "Welcome to Quickchat\nChoose an option:",
+                        "Welcome to QuickChat\nChoose an option:",
                         "QuickChat Menu",
                         JOptionPane.DEFAULT_OPTION,
                         JOptionPane.INFORMATION_MESSAGE,
@@ -56,10 +66,9 @@ public class Main {
                         JOptionPane.showMessageDialog(
                                 null,
                                 "This feature is coming soon",
-                                "Quickchat",
+                                "QuickChat",
                                 JOptionPane.INFORMATION_MESSAGE
                         );
-
                         break;
 
                     case 1:
@@ -69,21 +78,24 @@ public class Main {
                     case 2:
                         JOptionPane.showMessageDialog(
                                 null,
-                                "Goodbye",
+                                "Goodbye!",
                                 "QuickChat",
                                 JOptionPane.INFORMATION_MESSAGE
                         );
-
                         s.close();
                         return;
-
                 }
             }
 
         } else {
+            JOptionPane.showMessageDialog(
+                    null,
+                    loginResult,
+                    "Login Failed",
+                    JOptionPane.ERROR_MESSAGE
+            );
             System.out.println("Exiting program due to login failure.");
             s.close();
-
         }
     }
 }
