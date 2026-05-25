@@ -1,68 +1,51 @@
 import java.util.Scanner;
-import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 public class Main {
 
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
-        // Registration
         Registration registration = new Registration();
         registration.Register();
 
-        // Login attempt
-        Scanner s = new Scanner(System.in);
+        Login login = new Login(registration.userName, registration.passWord,
+                registration.firstName, registration.lastName);
+        login.loginProcess();
 
-        System.out.println("Please login in: ");
-        System.out.println("Enter Username: ");
-        String loginUser = s.nextLine();
+        System.out.println("Welcome to QuickChat.");
 
-        System.out.println("Enter Password: ");
-        String loginPass = s.nextLine();
+        int menuChoice = 0;
 
-        // Creates a login object
-        Login login = new Login(
-                registration.userName,
-                registration.passWord,
-                registration.firstName,
-                registration.lastName);
+        while (menuChoice != 3) {
 
-        String loginResult = login.loginUser(loginUser, loginPass);
-        System.out.println(loginResult);
+            System.out.println("1) Send Messages");
+            System.out.println("2) Show recently sent messages");
+            System.out.println("3) Quit");
+            System.out.print("Choose an option: ");
+            menuChoice = Integer.parseInt(input.nextLine());
 
-        if (loginResult.toLowerCase().contains("welcome")) {
+            if (menuChoice == 1) {
+                SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        Message.showMessagePopup();
+                    }
+                });
 
-            JOptionPane.showMessageDialog(null, "Welcome to QuickChat");
-
-            while (true) {
-                String[] options = {"Send Messages", "Show recently sent messages", "Quit"};
-
-                int choice = JOptionPane.showOptionDialog(
-                        null,
-                        "Choose an option:",
-                        "QuickChat Menu",
-                        JOptionPane.DEFAULT_OPTION,
-                        JOptionPane.INFORMATION_MESSAGE,
-                        null,
-                        options,
-                        options[0]
-                );
-
-                switch (choice) {
-                    case 0:
-                        Message.showMessageForm();
-                        break;
-                    case 1:
-                        JOptionPane.showMessageDialog(null, "Coming Soon");
-                        break;
-                    case 2:
-                        JOptionPane.showMessageDialog(null, "Goodbye!");
-                        s.close();
-                        return;
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+
+            } else if (menuChoice == 2) {
+                System.out.println("Coming Soon.");
+
+            } else if (menuChoice == 3) {
+                System.out.println("Goodbye!");
             }
-        } else {
-            System.out.println("Exiting program due to login failure.");
-            s.close();
         }
+
+        input.close();
     }
 }

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Login {
 
     String userName;
@@ -12,11 +14,19 @@ public class Login {
         this.lastName = lastName;
     }
 
-    public String loginUser(String Username, String Password) {
-        if (Username.equals(this.userName) && Password.equals(this.password)) {
-            return "Welcome " + firstName + " " + lastName + ". It is great to see you again";
+    public void loginProcess() {
+        Scanner s = new Scanner(System.in);
+
+        System.out.print("Enter Username: ");
+        String enteredUser = s.nextLine();
+
+        System.out.print("Enter Password: ");
+        String enteredPass = s.nextLine();
+
+        if (enteredUser.equals(this.userName) && enteredPass.equals(this.password)) {
+            System.out.println("Welcome " + firstName + " " + lastName + ". It is great to see you again");
         } else {
-            return "Username or Password incorrect. Please try again.";
+            System.out.println("Username or Password incorrect. Please try again.");
         }
     }
 }

@@ -48,7 +48,7 @@ public class Registration {
                 System.out.println("Username successfully captured");
                 break;
             } else {
-                System.out.println("Username must contain '_' and be more than 5 characters long");
+                System.out.println("Username must contain '_' and be 5 characters or less");
             }
         }
 
