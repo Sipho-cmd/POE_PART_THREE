@@ -1,20 +1,16 @@
 import java.util.Scanner;
 
-//Declaration
 public class Registration {
     String userName;
     String passWord;
     String firstName;
     String lastName;
     String phoneNumber;
-    int minLength = 8; //The minimum password length
 
-    //userName validation
     public boolean checkUserName(String userName) {
         return userName.length() <= 5 && userName.contains("_");
     }
 
-    //passWord validation
     public boolean checkpassWord(String passWord) {
         if (passWord.length() < 8) return false;
 
@@ -24,7 +20,7 @@ public class Registration {
 
         for (char ch : passWord.toCharArray()) {
             if (Character.isUpperCase(ch)) hasUppercase = true;
-            if (Character.isLetterOrDigit(ch)) hasSpecial = true;
+            if (!Character.isLetterOrDigit(ch)) hasSpecial = true;
             if (Character.isDigit(ch)) hasDigit = true;
         }
 
@@ -51,7 +47,6 @@ public class Registration {
             if (checkUserName(userName)) {
                 System.out.println("Username successfully captured");
                 break;
-
             } else {
                 System.out.println("Username must contain '_' and be more than 5 characters long");
             }
@@ -64,7 +59,6 @@ public class Registration {
             if (checkpassWord(passWord)) {
                 System.out.println("Password successfully captured");
                 break;
-
             } else {
                 System.out.println("Password must be at least 8 characters long, contain an uppercase, digit ,and special character");
             }
@@ -77,7 +71,6 @@ public class Registration {
             if (checkPhoneNo(phoneNumber)) {
                 System.out.println("Phone number successfully captured");
                 break;
-
             } else {
                 System.out.println("Phone number must contain '+27 or 0'");
             }
