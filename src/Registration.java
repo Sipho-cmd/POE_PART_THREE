@@ -34,6 +34,9 @@ public class Registration {
     public void Register() {
         Scanner s = new Scanner(System.in);
 
+        System.out.println("\n=====================================");
+        System.out.println("           REGISTRATION");
+
         System.out.print("Enter your first name: ");
         firstName = s.nextLine();
 
@@ -41,7 +44,7 @@ public class Registration {
         lastName = s.nextLine();
 
         while (true) {
-            System.out.print("Enter your username: ");
+            System.out.print("Enter your username (must contain '_' and be ≤5 chars): ");
             userName = s.nextLine();
 
             if (checkUserName(userName)) {
@@ -53,27 +56,29 @@ public class Registration {
         }
 
         while (true) {
-            System.out.print("Enter your password: ");
+            System.out.print("Enter your password (≥8 chars, uppercase, digit, special): ");
             passWord = s.nextLine();
 
             if (checkpassWord(passWord)) {
                 System.out.println("Password successfully captured");
                 break;
             } else {
-                System.out.println("Password must be at least 8 characters long, contain an uppercase, digit ,and special character");
+                System.out.println("Password must be at least 8 characters long, contain an uppercase, digit, and special character");
             }
         }
 
         while (true) {
-            System.out.print("Enter your Phone Number: ");
+            System.out.print("Enter your Phone Number (+27 or 0 followed by 9 digits): ");
             phoneNumber = s.nextLine();
 
             if (checkPhoneNo(phoneNumber)) {
                 System.out.println("Phone number successfully captured");
                 break;
             } else {
-                System.out.println("Phone number must contain '+27 or 0'");
+                System.out.println("Phone number must contain '+27' or start with 0");
             }
         }
+
+        System.out.println("\nRegistration Complete!\n");
     }
 }

@@ -24,5 +24,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="json-20251224" level="project" />
+    <orderEntry type="library" name="json-20251224.jar" level="project" />
   </component>
 </module>
