@@ -63,7 +63,8 @@ public class Registration {
                 System.out.println("Password successfully captured");
                 break;
             } else {
-                System.out.println("Password must be at least 8 characters long, contain an uppercase, digit, and special character");
+                System.out.println("Password must be at least 8 characters long, contain an uppercase, digit, and " +
+                        "special character");
             }
         }
 

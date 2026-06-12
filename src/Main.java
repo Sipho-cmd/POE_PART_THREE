@@ -4,11 +4,11 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        // PART 1: REGISTRATION
+        //REGISTRATION
         Registration registration = new Registration();
         registration.Register();
 
-        // PART 1: LOGIN
+        //LOGIN
         Login login = new Login(registration.userName, registration.passWord,
                 registration.firstName, registration.lastName);
 
@@ -18,7 +18,7 @@ public class Main {
             return;
         }
 
-        // PART 2: WELCOME MESSAGE & MENU
+        //WELCOME MESSAGE & MENU
         System.out.println("\n=====================================");
         System.out.println("     Welcome to QuickChat, " + registration.firstName + "!");
 
