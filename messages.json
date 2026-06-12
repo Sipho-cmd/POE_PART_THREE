@@ -1,7 +1,16 @@
-[{
-    "messageText": "aa",
-    "messageNumber": 1,
-    "recipient": "aa",
-    "messageID": "S_P1",
-    "messageHash": "AAAA1"
-}]
+[
+    {
+        "messageText": "hhhhh",
+        "messageNumber": 1,
+        "recipient": "sip",
+        "messageID": "S_P1",
+        "messageHash": "SIHH1"
+    },
+    {
+        "messageText": "iiiiiiiiiiiiii",
+        "messageNumber": 2,
+        "recipient": "hhhhhhhhh",
+        "messageID": "S_P2",
+        "messageHash": "HHII2"
+    }
+]
